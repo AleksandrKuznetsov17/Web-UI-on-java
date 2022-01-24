@@ -34,7 +34,7 @@ public class ChooseProduct {
 
         List<WebElement> products = webDriver.findElements(By.xpath("//div[contains(@class, 'product-card ')]"));
 
-        products.get(1).findElement(By.xpath("//div[contains(@class,'product-card__btn')]")).click();
+        products.get(1).findElement(By.xpath(".//div[contains(@class,'product-card__btn')]")).click();
 
         new WebDriverWait(webDriver, 4)
                 .until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[contains(text(),'Перейти в корзину')]")))
