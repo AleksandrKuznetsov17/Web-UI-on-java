@@ -1,10 +1,12 @@
 package ru.gb.lesson.lesson4;
 
 import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import ru.gb.lesson.lesson4.extentions.TestTimer;
 import ru.gb.lesson.lesson4.providers.InvalidTriangleProvider;
 
 import java.util.stream.Stream;
@@ -14,29 +16,34 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assumptions.assumeFalse;
 
 @DisplayName("Треугольник")
+@ExtendWith(TestTimer.class)
 public class TriangleTest {
 
     private static final Logger logger = LoggerFactory.getLogger(TriangleTest.class);
 
     @BeforeEach
     void setUp() {
-        logger.debug("BeforeEach");
+//        logger.trace("BeforeEach trace");
+//        logger.debug("BeforeEach debug");
+//        logger.info("BeforeEach info");
+//        logger.warn("BeforeEach warn");
+//        logger.error("BeforeEach error");
     }
 
-    @AfterEach
-    void tearDown() {
-        logger.debug("AfterEach");
-    }
-
-    @BeforeAll
-    static void beforeAll() {
-        logger.debug("BeforeAll");
-    }
-
-    @AfterAll
-    static void afterAll() {
-        logger.debug("AfterAll");
-    }
+//    @AfterEach
+//    void tearDown() {
+//        logger.debug("AfterEach");
+//    }
+//
+//    @BeforeAll
+//    static void beforeAll() {
+//        logger.debug("BeforeAll");
+//    }
+//
+//    @AfterAll
+//    static void afterAll() {
+//        logger.debug("AfterAll");
+//    }
 
     @Test
     @DisplayName("Периметр треугольника: прямоугольный треугольник")
