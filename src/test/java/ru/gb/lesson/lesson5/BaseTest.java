@@ -9,6 +9,10 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import java.util.concurrent.TimeUnit;
 
 public class BaseTest {
+    protected String login = "autosupertravel@yandex.ru";
+    protected String password = "12345678";
+    protected static final String URL = "https://pop-music.ru/";
+
     WebDriver webDriver;
     @BeforeEach
     void setUp() {
