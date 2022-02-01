@@ -1,5 +1,6 @@
 package ru.gb.lesson.lesson6.pages.blocks;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -26,6 +27,7 @@ public class MainHeader extends BaseView {
         super(webDriver);
     }
 
+    @Step("Перейти на страницу {tab1} -> {tab2}")
     public ProductsPage goToProductPage(String tab1, String tab2) {
         new Actions(webDriver)
                 .click(webDriver.findElement(By.xpath("//ul[@data-type='header']/li/a[text()='" + tab1 + "']")))
@@ -36,17 +38,20 @@ public class MainHeader extends BaseView {
         return new ProductsPage(webDriver);
     }
 
+    @Step("Кликнуть на кнопку Логин")
     public LoginPopup clickLoginButton() {
         loginButton.click();
         return new LoginPopup(webDriver);
     }
 
+    @Step("Выйти из системы")
     public MainPage logout() {
         profileButton.click();
         logoutButton.click();
         return new MainPage(webDriver);
     }
 
+    @Step("Проверить, что кнопка Логин отображается на странице")
     public MainPage checkLoginButtonIsVisible() {
         new WebDriverWait(webDriver, 10).until(ExpectedConditions.presenceOfElementLocated(By.linkText("Войти")));
         return new MainPage(webDriver);
